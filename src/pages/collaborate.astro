@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+const imagePath = '/src/assets/images/pets_collaborate.png';
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif}')
+
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif}"`);
+---
+<BaseLayout title="cansecadelas.org">
+    <div class="w-full mx-auto max-w-screen-xl">
+        <div class="grid grid-cols-3 gap-4">
+			<div class="col-span-1">
+				<Image src={images[imagePath]()} alt="" width={500}/>
+			</div>
+			<div class="col-span-2 h-full p-6 mt-10">
+				<h3 class="text-5xl font-bold text-blue-900 font-serif">Colaborar</h3>
+                <div class="mt-5">
+                    <p class="pr-5 pb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis euismod elit. Maecenas elementum vel nunc a sagittis. Etiam eget faucibus massa. Etiam in finibus enim. Quisque placerat libero ligula, quis placerat ex mattis non. Proin nec enim risus. Praesent suscipit elementum sapien id bibendum. </p>
+                    <p class="pr-5 pb-5">Duis volutpat scelerisque nulla, a accumsan eros. Nam sodales diam sed pretium porta. Sed fermentum erat ut aliquet vulputate. Maecenas fringilla laoreet nibh luctus facilisis. Fusce ullamcorper ullamcorper sodales. Aenean ac nisi sagittis, molestie augue sed, maximus nulla. Vivamus rutrum, neque eget convallis imperdiet, enim eros laoreet enim, id convallis neque nulla vitae quam. Maecenas eget lorem in sapien elementum vestibulum. Nulla blandit placerat lacus, sit amet volutpat nisl consectetur nec. Maecenas eget purus hendrerit, fermentum nunc et, placerat magna. </p>
+                    <p class="pr-5 pb-5">Morbi ultricies arcu id augue hendrerit sollicitudin. Donec vestibulum elit metus, non vulputate erat malesuada sed. Proin porta erat ac massa elementum, a euismod turpis venenatis. Curabitur ut purus quam. Duis dolor dolor, dictum in magna eu, sodales imperdiet nisl. Morbi et erat sit amet nibh laoreet sollicitudin. Donec viverra fringilla porta. In interdum dignissim volutpat. Nulla auctor vel lacus ut ultricies. </p>
+                    <p class="pr-5 pb-5">Fusce feugiat est non lacus vestibulum sagittis. Aliquam bibendum bibendum aliquam. In sit amet aliquet ligula. Morbi efficitur tortor ac risus gravida sagittis. Ut eget congue turpis. Nullam porta, lectus id dapibus facilisis, massa nulla rutrum sem, at porta erat lectus non magna. Aliquam erat volutpat. Nunc lobortis tempus turpis, nec porta leo. Maecenas viverra leo non consequat euismod. Ut sed fringilla lacus. Morbi auctor, tellus lobortis auctor malesuada, orci lorem rhoncus elit, eget consectetur sapien turpis eu odio. Aenean elit nisl, convallis vel nibh quis, hendrerit hendrerit mi. Aenean ornare lobortis magna, et feugiat massa laoreet a. </p>
+                </div>
+			</div>			  
+		</div>
+    </div>
+</BaseLayout>
