@@ -3,8 +3,9 @@ import BaseLayout from '../layouts/Layout.astro';
 import PetCard from '../components/shared/PetCard.astro';
 import { Image } from 'astro:assets';
 import pets from '../data/pets';
-import HomeCard from '../components/HomeCard.astro';
-import { cards } from '../data/home';
+import dog1Svg from '../assets/icons/dog-1.svg';
+import dog2Svg from '../assets/icons/dog-2.svg';
+import dog3Svg from '../assets/icons/dog-3.svg';
 
 const imagePath = '/src/assets/images/pets_adopt_header.png';
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif}')
@@ -31,9 +32,40 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
 			</div>			  
 		</div>
 		<div class="grid grid-cols-3 gap-4 p-4 m-4">
-			{ cards.map((card) => (
-				<HomeCard card={card} />
-			))}
+			<div class="bg-gradient-to-b from-blue-900 to-blue-600 rounded-lg shadow-lg h-full">
+				<div class="p-5">
+					<div class="flex">
+						<Image src={dog1Svg} class="w-8 h-8 mr-4" alt=""/>
+						<h3 class="text-3xl font-bold text-white font-serif">Compañerismo</h3>
+					</div>
+					<p class="mt-3 text-white">
+						Adoptar una mascota no solo te brinda compañía, sino también amor incondicional. El vínculo que se forma entre un humano y su mascota es incomparable.
+					</p>
+				</div>
+			</div>
+			<div class="bg-gradient-to-b from-blue-900 to-blue-600 rounded-lg shadow-lg h-full">
+				<!-- TODO: Refactor to HomeCardComponent -->
+				<div class="p-5">
+					<div class="flex">
+						<Image src={dog2Svg} class="w-8 h-8 mr-4" alt=""/>
+						<h3 class="text-3xl font-bold text-white font-serif">Salud y Bienestar</h3>
+					</div>
+					<p class="mt-3 text-white">
+						Está científicamente comprobado que tener una mascota puede mejorar tu salud física y mental. El contacto con animales reduce el estrés, disminuye la presión arterial y promueve un estilo de vida más activo.
+					</p>
+				</div>
+			</div>
+			<div class="bg-gradient-to-b from-blue-900 to-blue-600 rounded-lg shadow-lg h-full">
+				<div class="p-5">
+					<div class="flex">
+						<Image src={dog3Svg} class="w-8 h-8 mr-4" alt=""/>
+						<h3 class="text-3xl font-bold text-white font-serif">Salvar una Vida</h3>
+					</div>
+					<p class="mt-3 text-white">
+						Cada vez que adoptas, estás salvando una vida. Muchos animales esperan ansiosamente en refugios por una oportunidad de encontrar un hogar amoroso.
+					</p>
+				</div>
+			</div>
 		</div>
 		<div class="grid grid-cols-3 gap-4 p-4 m-4">
 			{ pets.map((pet) => (
