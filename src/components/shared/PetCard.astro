@@ -6,13 +6,13 @@ const { pet } = Astro.props;
 <div class="bg-white rounded-lg shadow-lg h-full">
     <div class="p-5">
         <h3 class="text-3xl font-bold text-blue-900 font-serif">{pet.name}</h3>
-        <div class="text-slate-800">{pet.shelter}</div>
-        <div class="text-sm text-slate-600 mb-3">{pet.created_at}</div>
-        <Image src={pet.url_image} alt={pet.name} class="w-full h-64 object-cover rounded-lg" width={400} height={200}/>
+         <div class="text-slate-800">{pet.sheltter.name}</div>
+         <a class="text-sm text-slate-600 mb-3" target="_blank" href={pet.sheltter.url}>{pet.sheltter.url}</a>
+        <Image src={pet.image_src} alt={pet.name} class="w-full h-64 object-cover rounded-lg mt-3" width={400} height={200}/>
     </div>
     <div class="ml-5 mb-10 mt-3">
         <div>
-            <a href={pet.url} target="_blank" class="bg-blue-900 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded mt-10">Saber Más de {pet.name}</a>
+            <a href={pet.url_adopt} target="_blank" class="bg-blue-900 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded mt-10">Saber Más de {pet.name}</a>
         </div>
     </div>
 </div>
